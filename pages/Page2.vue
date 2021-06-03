@@ -3,32 +3,11 @@
     <div>
       <Logo />
       <h1 class="title">
-        nuxt-js-static
+        Page 2
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
       <div class="pages">
-        <NuxtLink to="/about">
-          About
-        </NuxtLink>
-        <NuxtLink to="/page1">
-          Page 1
+        <NuxtLink to="/page3">
+          Page 3
         </NuxtLink>
       </div>
     </div>
@@ -69,15 +48,4 @@ export default Vue.extend({})
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
