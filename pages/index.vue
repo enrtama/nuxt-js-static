@@ -5,7 +5,7 @@
 				logo-src="https://cdn.viriciti.com/statics/img/logo/green-logo.svg"
 				class-name-dropdown="btn btn--transparent dropdown-toggle"
 				:uber="true"
-				:session="null"
+				:session="session"
 				:users-impersonate-list="[]"
 				:user-options="[]"
 				:navigation-routes="routes"
@@ -17,14 +17,12 @@
 						span.navbar__logo--text.font-weight-bold.room-xxxs-right(:style="{fontFamily:heavyFont}") CS OEM
 						span.navbar__logo--text(:style="{fontFamily:lightFont}") App Test
 				template(v-slot:navtabs)
-					NavTabs(:routes="routes")
+					NavTabs.text--center(:tabs="routes" @tab-selected="onRoute")
 		template(v-slot:main-content)
 			.links
 				a.button--green(href='https://nuxtjs.org/' target='_blank' rel='noopener noreferrer') Documentation
 				a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer') GitHub
 			h1.text--center CS OEM TEST APP
-			.pages
-				NuxtLink(to='/about') | About
 
 </template>
 
@@ -47,14 +45,30 @@ export default Vue.extend({
 		return {
 			heavyFont : "var(--museo-name-700)",
 			lightFont : "var(--museo-name-300)",
+			session   : null,
 		}
 	},
 	computed: {
 		routes() {
-			return [ "Route 1", "Route 2" ]
+			return [ {
+				key   : 0,
+				title : "Dashboard",
+				path  : "/",
+			}, {
+				key   : 1,
+				title : "About",
+				path  : "/about",
+			} ]
 		},
 	},
+	async created() {
+		const session = await this.$axios.$get("sessions/my")
+		if (session) { this.session = session }
+	},
 	methods: {
+		onRoute({ path }) {
+			if (path) { this.$router.push(path) }
+		},
 		goHome() {
 			this.$router.push("/")
 		},

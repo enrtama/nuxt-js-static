@@ -1,0 +1,45 @@
+module.exports = {
+
+	server: {
+		port: 8081,
+	},
+
+	oauth2Provider: {
+		host         : "http://localhost:8001",
+		internal     : "http://localhost:8002",
+		clientId     : "development",
+		clientSecret : "secret",
+		serviceName  : "portal",
+	},
+
+	bundle: {
+		gatewayHTTP : "http://localhost:8000",
+		graphql     : "http://localhost:8000/api/v1/graphql",
+	},
+
+	authMiddlewareOverride: {
+		session: {
+			name              : "web.viriciti.com",
+			secret            : "ssshhh",
+			resave            : false,
+			saveUninitialized : false,
+			cookie            : {
+				domain : "localhost",
+				maxAge : 7 * 24 * 60 * 60 * 1000,
+			},
+		},
+		store: {
+			host   : "localhost",
+			port   : 6379,
+			prefix : "web_sess:",
+		},
+		provider: {
+			redirectProtocol : "http://",
+			scope            : "viriciti",
+			state            : true,
+		},
+		gateway: {
+			http: "http://localhost:8000",
+		},
+	},
+}

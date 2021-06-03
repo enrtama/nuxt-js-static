@@ -45,7 +45,10 @@ export default {
 	],
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
-	axios: {},
+	axios: {
+		baseURL     : "https://gateway.sd.dev.viriciti.com/api/v1",
+		credentials : "withCredentials",
+	},
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
 	pwa: {
@@ -59,7 +62,6 @@ export default {
 	build: {
 	},
 	env: {
-		baseUrl: "https://api.viricit.com",
 	},
 	router: {
 		base: "/",
