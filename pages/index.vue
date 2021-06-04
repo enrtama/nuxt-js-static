@@ -18,7 +18,7 @@ import Vue from "vue"
 export default Vue.extend({
 	name: "Dashboard",
 	mounted() {
-		this.ws           = new WebSocket("wss://cs-oem-test-backend.cloud1.viriciti.com/ocpp")
+		this.ws           = new WebSocket("ws://localhost:5050/ocpp")
 		this.ws.onopen    = () => console.log("hoer")
 		this.ws.onmessage = msg => console.log(msg)
 	},
