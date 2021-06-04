@@ -18,6 +18,8 @@ Layout
 					span.navbar__logo--text(:style="{fontFamily:lightFont}") App Test
 			template(v-slot:navtabs)
 				NavTabs.text--center(:tabs="routes" @tab-selected="onRoute")
+	template(slot="sidebar")
+		Sidebar
 	template(v-slot:main-content)
 		Nuxt
 </template>
@@ -25,7 +27,7 @@ Layout
 <script>
 
 import Vue from "vue"
-import { Layout, Header, NavTabs } from "@viriciti/atomic-components-frontend"
+import { Layout, Header, NavTabs, Sidebar } from "@viriciti/atomic-components-frontend"
 
 import vueResponsive from "vue-responsive"
 Vue.directive("responsive", vueResponsive)
@@ -36,6 +38,7 @@ export default Vue.extend({
 		Layout,
 		Header,
 		NavTabs,
+		Sidebar,
 	},
 	data() {
 		return {
