@@ -1,12 +1,14 @@
 <template lang="pug">
-		InfoCard(
+		InfoCard.spacing-base(
 			:value="test.name"
 			:errored="test.error"
+			:class="test.error ? 'red' : 'green'"
 		)
 </template>
+
 <script>
+
 import { InfoCard } from "@viriciti/atomic-components-frontend"
-import tests from "../assets/tests.js"
 
 export default {
 	components: {
@@ -15,13 +17,23 @@ export default {
 	props: {
 		test: {
 			type    : Object,
-			default : () => { name: "TEST" },
+			default : () => { return { name: "TEST" } },
 		},
 	},
 }
 </script>
 <style scoped>
+
 .infocard {
 	width: 250px !important;
 }
+
+.infocard.green {
+	background-color: var(--msg-turquoise-success-light);
+}
+
+.infocard.red {
+	background-color: var(--msg-red-error-light);
+}
+
 </style>
