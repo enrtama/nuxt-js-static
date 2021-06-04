@@ -2,7 +2,7 @@
 		InfoCard.spacing-base(
 			:value="test.name"
 			:errored="test.error"
-			:class="test.error ? 'red' : 'green'"
+			:class="getError(test)"
 		)
 </template>
 
@@ -20,6 +20,12 @@ export default {
 			default : () => { return { name: "TEST" } },
 		},
 	},
+	methods: {
+		getError(test) {
+			if (test.error == null) { return "blue" }
+			return test.error ? "red" : "green"
+		},
+	},
 }
 </script>
 <style scoped>
@@ -34,6 +40,10 @@ export default {
 
 .infocard.red {
 	background-color: var(--msg-red-error-light);
+}
+
+.infocard.blue {
+	background-color: var(--msg-blue-information-light);
 }
 
 </style>

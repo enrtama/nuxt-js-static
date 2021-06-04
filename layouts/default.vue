@@ -61,7 +61,7 @@ export default Vue.extend({
 				key   : 2,
 				title : "Route 2",
 				path  : "/route2",
-			}]
+			} ]
 		},
 		userOptions() {
 			return [
@@ -81,8 +81,8 @@ export default Vue.extend({
 		},
 	},
 	async created() {
-		const session = await this.$axios.$get("sessions/my")
-		if (session) { this.session = session }
+		// const session = await this.$axios.$get("sessions/my")
+		// if (session) { this.session = session }
 	},
 	methods: {
 		onRoute({ path }) {

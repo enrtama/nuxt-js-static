@@ -8,7 +8,7 @@
 				@click="type.selected = !type.selected"
 				:class="{ selected: type.selected }"
 			)
-				h3 {{type.type}}
+				h3 {{ type.type }}
 </template>
 <script>
 import { Card } from "@viriciti/atomic-components-frontend"

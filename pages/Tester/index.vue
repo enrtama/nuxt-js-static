@@ -4,17 +4,18 @@
 		CSDetails(:cs="cs")
 		h2.text-center.room-md-vertical Select Tests:
 		TestTypeSelector
-		TestCardsContainer()
+		TestCardsContainer(:messages="messages")
 </template>
 <script>
 
 export default {
-	name: "Tester",
-	layout: "default",
+	name   : "Tester",
+	layout : "default",
 	data() {
 		return {
-			ws: null,
-			cs: ""
+			ws       : null,
+			cs       : "",
+			messages : [],
 		}
 	},
 	mounted() {
@@ -26,8 +27,8 @@ export default {
 		handleMessage(msg) {
 			const parsedMsg = JSON.parse(msg.data)
 			this.cs = parsedMsg.Data.ChargePoint
-			console.log("MESSAGE", parsedMsg)
-		}
-	}
+			this.messages.push(parsedMsg)
+		},
+	},
 }
 </script>
