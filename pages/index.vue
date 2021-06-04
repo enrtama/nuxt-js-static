@@ -5,10 +5,6 @@
 			a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer') GitHub
 		h1.text--center CS OEM TEST APP
 
-		CSDetails
-		TestTypeSelector
-		TestCardsContainer
-
 </template>
 
 <script>
@@ -17,11 +13,6 @@ import Vue from "vue"
 
 export default Vue.extend({
 	name: "Dashboard",
-	mounted() {
-		this.ws           = new WebSocket("ws://localhost:5050/ocpp")
-		this.ws.onopen    = () => console.log("hoer")
-		this.ws.onmessage = msg => console.log(msg)
-	},
 })
 </script>
 

@@ -55,17 +55,13 @@ export default Vue.extend({
 				path  : "/",
 			}, {
 				key   : 1,
-				title : "About",
-				path  : "/about",
+				title : "OEM Automated Tests",
+				path  : "/tester",
 			}, {
 				key   : 2,
 				title : "Route 2",
 				path  : "/route2",
-			}, {
-				key   : 3,
-				title : "Route 1",
-				path  : "/route1",
-			} ]
+			}]
 		},
 		userOptions() {
 			return [

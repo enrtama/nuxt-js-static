@@ -1,6 +1,9 @@
 <template lang="pug">
 	.room-lg.flex--space-around.pointer
-		Card.col-md-5(v-for="type in testTypes" :key="type.key")
+		Card.col-md-5(
+			v-for="type in testTypes"
+			:key="type.key"
+		)
 			.content(
 				@click="type.selected = !type.selected"
 				:class="{ selected: type.selected }"

@@ -1,15 +1,18 @@
 <template lang="pug">
 	Card.offset-3(title="Title")
 		h3 Chargestation Details:
-		.container
-			div.text-dark Name:
-				span {{chargestation.name}}
-			div.text-dark Identity:
-				span {{chargestation.identity}}
-			div.text-dark Charger Model:
-				div Brand: {{chargestation.chargerModel.brand}}
-				div Name: {{chargestation.chargerModel.name}}
-			div Firmware: {{chargestation.firmware}}
+		.container(v-if="cs")
+			h4 Name:
+				h5.room-md {{cs}}
+			h4 Identity:
+				h5.room-md {{cs.identity || "No Identity received"}}
+			h4 Charger Model:
+				div.room-md
+					h5 Brand:
+					h6.room-sm-vertical.room-sm-left {{cs.brand || "ViriCiti Mock Brand"}}
+					h5 Name:
+					h6.room-sm-vertical.room-sm-left {{cs.model || "ViriCiti Mock"}}
+		div(v-else) No chargestation selected
 </template>
 <script>
 import { Card } from "@viriciti/atomic-components-frontend"
@@ -31,8 +34,8 @@ export default {
 		Card,
 	},
 	props: {
-		chargestation: {
-			type    : Object,
+		cs: {
+			type    : String,
 			default : () => MOCK_CS,
 		},
 	},
