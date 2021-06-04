@@ -1,6 +1,7 @@
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
-	target: "static",
+	target : "static",
+	ssr    : false,
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
@@ -23,8 +24,8 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
-		{ src: "~node_modules/@viriciti/atomic-components-frontend/dist/atomic-components-frontend.umd.js", mode: "client" },
-		{ src: "~node_modules/@viriciti/atomic-components-frontend/dist/atomic-components-frontend.esm.js", mode: "client" },
+		{ src: "~node_modules/@viriciti/atomic-components-frontend/dist/atomic-components-frontend.umd.js", ssr: false },
+		{ src: "~node_modules/@viriciti/atomic-components-frontend/dist/atomic-components-frontend.esm.js", ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

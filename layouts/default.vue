@@ -1,8 +1,84 @@
-<template>
-  <div>
-    <Nuxt />
-  </div>
+<template lang="pug">
+Layout
+	template(v-slot:header)
+		Header(
+			logo-src="https://cdn.viriciti.com/statics/img/logo/green-logo.svg"
+			class-name-dropdown="btn btn--transparent dropdown-toggle"
+			:uber="true"
+			:session="session"
+			:users-impersonate-list="[]"
+			:user-options="[]"
+			:navigation-routes="routes"
+			impersonate-placeholder="impersonate"
+			user-menu-icon="viricon viricon-arrow-down"
+			@logo-click="goHome")
+			template(v-slot:appTitle)
+				.flex.apptitle
+					span.navbar__logo--text.font-weight-bold.room-xxxs-right(:style="{fontFamily:heavyFont}") CS OEM
+					span.navbar__logo--text(:style="{fontFamily:lightFont}") App Test
+			template(v-slot:navtabs)
+				NavTabs.text--center(:tabs="routes" @tab-selected="onRoute")
+	template(v-slot:main-content)
+		Nuxt
 </template>
+
+<script>
+
+import Vue from "vue"
+import { Layout, Header, NavTabs } from "@viriciti/atomic-components-frontend"
+
+import vueResponsive from "vue-responsive"
+Vue.directive("responsive", vueResponsive)
+
+export default Vue.extend({
+	name       : "Home",
+	components : {
+		Layout,
+		Header,
+		NavTabs,
+	},
+	data() {
+		return {
+			heavyFont : "var(--museo-name-700)",
+			lightFont : "var(--museo-name-300)",
+			session   : null,
+		}
+	},
+	computed: {
+		routes() {
+			return [ {
+				key   : 0,
+				title : "Dashboard",
+				path  : "/",
+			}, {
+				key   : 1,
+				title : "About",
+				path  : "/about",
+			}, {
+				key   : 2,
+				title : "Route 2",
+				path  : "/route2",
+			}, {
+				key   : 3,
+				title : "Route 1",
+				path  : "/route1",
+			} ]
+		},
+	},
+	async created() {
+		const session = await this.$axios.$get("sessions/my")
+		if (session) { this.session = session }
+	},
+	methods: {
+		onRoute({ path }) {
+			if (path) { this.$router.push(path) }
+		},
+		goHome() {
+			this.$router.push("/")
+		},
+	},
+})
+</script>
 
 <style>
 html {

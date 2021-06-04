@@ -17,6 +17,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@viriciti/atomic-components-frontend": "2.8.14",
     "core-js": "^3.9.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-align-assignments": "^1.1.2",
     "nuxt": "^2.15.3",
     "vue": "2.6.13",
