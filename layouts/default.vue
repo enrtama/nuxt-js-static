@@ -7,7 +7,7 @@ Layout
 			:uber="true"
 			:session="session"
 			:users-impersonate-list="[]"
-			:user-options="[]"
+			:user-options="userOptions"
 			:navigation-routes="routes"
 			impersonate-placeholder="impersonate"
 			user-menu-icon="viricon viricon-arrow-down"
@@ -66,6 +66,22 @@ export default Vue.extend({
 				title : "Route 1",
 				path  : "/route1",
 			} ]
+		},
+		userOptions() {
+			return [
+				{
+					key    : 0,
+					icon   : "viricon viricon-settings",
+					label  : "Settings",
+					action : "/settings",
+				},
+				{
+					key    : 1,
+					icon   : "viricon viricon-sign-out",
+					label  : "Logout",
+					action : "/logout",
+				},
+			]
 		},
 	},
 	async created() {
