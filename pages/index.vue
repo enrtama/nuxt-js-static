@@ -1,28 +1,29 @@
 <template lang="pug">
-	Layout
-		template(v-slot:header)
-			Header(
-				logo-src="https://cdn.viriciti.com/statics/img/logo/green-logo.svg"
-				class-name-dropdown="btn btn--transparent dropdown-toggle"
-				:uber="true"
-				:session="session"
-				:users-impersonate-list="[]"
-				:user-options="[]"
-				:navigation-routes="routes"
-				impersonate-placeholder="impersonate"
-				user-menu-icon="viricon viricon-arrow-down"
-				@logo-click="goHome")
-				template(v-slot:appTitle)
-					.flex.apptitle
-						span.navbar__logo--text.font-weight-bold.room-xxxs-right(:style="{fontFamily:heavyFont}") CS OEM
-						span.navbar__logo--text(:style="{fontFamily:lightFont}") App Test
-				template(v-slot:navtabs)
-					NavTabs.text--center(:tabs="routes" @tab-selected="onRoute")
-		template(v-slot:main-content)
-			.links
-				a.button--green(href='https://nuxtjs.org/' target='_blank' rel='noopener noreferrer') Documentation
-				a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer') GitHub
-			h1.text--center CS OEM TEST APP
+	client-only(placeholder="loading...")
+		Layout
+			template(v-slot:header)
+				Header(
+					logo-src="https://cdn.viriciti.com/statics/img/logo/green-logo.svg"
+					class-name-dropdown="btn btn--transparent dropdown-toggle"
+					:uber="true"
+					:session="session"
+					:users-impersonate-list="[]"
+					:user-options="[]"
+					:navigation-routes="routes"
+					impersonate-placeholder="impersonate"
+					user-menu-icon="viricon viricon-arrow-down"
+					@logo-click="goHome")
+					template(v-slot:appTitle)
+						.flex.apptitle
+							span.navbar__logo--text.font-weight-bold.room-xxxs-right(:style="{fontFamily:heavyFont}") CS OEM
+							span.navbar__logo--text(:style="{fontFamily:lightFont}") App Test
+					template(v-slot:navtabs)
+						NavTabs.text--center(:tabs="routes" @tab-selected="onRoute")
+			template(v-slot:main-content)
+				.links
+					a.button--green(href='https://nuxtjs.org/' target='_blank' rel='noopener noreferrer') Documentation
+					a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer') GitHub
+				h1.text--center CS OEM TEST APP
 
 </template>
 
