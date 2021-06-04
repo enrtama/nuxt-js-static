@@ -40,7 +40,7 @@ export default {
 			}
 			return {
 				name  : test.name,
-				error : null,
+				error : null, // Blue / No status
 			}
 		},
 	},

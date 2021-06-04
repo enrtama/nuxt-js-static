@@ -5,14 +5,14 @@ export const tests = [
 	},
 	{
 		name  : "StatusNotification",
-		error : true,
+		error : false,
 	},
 	{
 		name  : "MeterValues",
 		error : false,
 	},
 	{
-		name  : "Some more stuff",
-		error : true,
+		name  : "StartTransaction",
+		error : false,
 	},
 ]
