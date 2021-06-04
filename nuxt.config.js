@@ -49,7 +49,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
-		baseURL     : "https://api.viriciti.com/api/v1",
+		baseURL     : "https://gateway.sd.dev.viriciti.com/api/v1",
 		credentials : "withCredentials",
 	},
 
